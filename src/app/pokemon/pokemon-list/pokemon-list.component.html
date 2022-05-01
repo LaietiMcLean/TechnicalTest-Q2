@@ -1,0 +1,25 @@
+<h1 class="mt-5">Pokemon List</h1>
+<hr>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th [ngStyle]="{'width': '6.25rem'}">#</th>
+      <th [ngStyle]="{'width': '9.3rem'}">Name</th>
+      <th>Sprite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let poke of pokemons">
+      <td>{{poke.id}}</td>
+      <td>{{poke.name}}</td>
+      <td>
+        <img
+          [src]="poke.pic"
+          [alt]="poke.name"
+          [ngStyle]="{'width': '4.68rem'}"
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
