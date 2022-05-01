@@ -22,15 +22,6 @@ export class PokemonListComponent implements OnInit {
       .subscribe(pokemons => {
         this.pokemons = pokemons;
       });
-
-  }
-
-  nextPage() {
-    this.page += 5;
-  }
-  previousPage() {
-    if(this.page > 0)
-    this.page -= 5;
   }
 
   onSearchPokemon(search: string) {

@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let poke of pokemons | filter:page:search"
+    <tr *ngFor="let poke of pokemons | filter:page:search | paginate: { itemsPerPage: 5, currentPage: page }"
           [ngStyle]="{'height': '6.25rem'}">
       <td>{{poke.id}}</td>
       <td>{{poke.name}}</td>
@@ -30,18 +30,7 @@
   </tbody>
 </table>
 
-
-<nav aria-label="Page navigation">
-  <button class="btn btn-primary"
-    (click)="previousPage()"
-  >
-      Previous
-  </button>
-  &nbsp;
-  <button class="btn btn-primary"
-          (click)="nextPage()"
-          [disabled]="(pokemons | filter:page:search).length === 0"
-  >
-      Next
-  </button>
-</nav>
+<pagination-controls (pageChange)="page = $event"
+                     previousLabel="Previous"
+                     nextLabel="Next">
+</pagination-controls>
